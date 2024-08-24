@@ -17,8 +17,15 @@ services:
 
     cap_add:
       - IPC_LOCK
+    networks:
+      - prasorganic-network
     command: vault server -config=/vault/config/config.hcl
 
 volumes:
   prasorganic-vault-data:
     name: prasorganic-vault-data
+
+networks:
+  prasorganic-network:
+    name: prasorganic-network
+    external: true
